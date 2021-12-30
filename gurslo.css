@@ -23,6 +23,19 @@ span.sheet-bold{
     border-style: none none solid none;
     border-color: black;
   }
+
+  
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  input[type=number] {
+    -moz-appearance: textfield;
+  }
   
   input[type="number"] {
     background-color: transparent;
@@ -115,6 +128,7 @@ span.sheet-bold{
     grid-template-rows: 2fr 0.6fr 2.3fr 0.7fr 3fr 0.7fr 1fr 2fr;
     grid-template-areas:"logo       name"              
                         "stats      attr"
+                        "stats      init"
                         "stats      bio"
                         "stats      gold"
                         "stats      load"
@@ -122,10 +136,10 @@ span.sheet-bold{
                         "resistance order-skills"
                         "resistance order-skills";
     grid-gap: 6px;
-    width:    650px; 
+    width:    750px; 
     height:   900px;
     background-image: url(https://github.com/Roll20/roll20-character-sheets/blob/master/Feast_of_Legends/images/FoLborder.jpg?raw=true);
-    background-size: 700px 900px;
+    background-size: 800px 900px;
     background-repeat: no-repeat;
   }
   
@@ -153,26 +167,38 @@ span.sheet-bold{
   
   /* ATTR SECTION */
   
-  div.sheet-attr{
-    background-image: url(https://github.com/Roll20/roll20-character-sheets/blob/master/Feast_of_Legends/images/FoLblock1.jpg?raw=true);
-    background-repeat: no-repeat;
-    background-size: 50px 50px;
+  div.sheet-attr{    
     grid-area: attr;
-    margin-left: 15px;
     display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
   }
 
   div.sheet-attr div.sheet-attr-block{
+    background-image: url(https://github.com/Roll20/roll20-character-sheets/blob/master/Feast_of_Legends/images/FoLsquare.jpg?raw=true);
+    background-repeat: no-repeat;
+    background-size: 50px 50px;
     padding: 5px;
     height: 40px;
     width: 40px;
-    border: solid black 1px;
+    display: flex;
+    flex-direction: column;
   }
-  div.sheet-attr div.sheet-attr-block input{    
+  div.sheet-attr div.sheet-attr-block div input{    
     width: 20px;
   }
   div.sheet-attr div.sheet-attr-block label{    
     font-size: 12px;
+  }
+
+  /* INIT SECTION */
+  
+  div.sheet-init{
+    grid-area: init;
+    background-image: url(https://github.com/Roll20/roll20-character-sheets/blob/master/Feast_of_Legends/images/FoLblock1.jpg?raw=true);
+    background-repeat: no-repeat;
+    background-size: 375px 130px;
+    display: flex;
   }
 
   /* STATS SECTION */
@@ -182,7 +208,7 @@ span.sheet-bold{
     margin-left: 15px;
   }
   
-  div.sheet-stats div:first-child{
+  /* div.sheet-stats div:first-child{
     display: flex;
     align-items: start;
     height: 25px;
@@ -195,7 +221,7 @@ span.sheet-bold{
   
   div.sheet-stats div:first-child span{
     padding: 0px 0px 5px 5px;
-  }
+  } */
   
   
   div.sheet-stats div.sheet-stat-block{
@@ -272,29 +298,27 @@ span.sheet-bold{
   div.sheet-name{
     background-image: url(https://github.com/Roll20/roll20-character-sheets/blob/master/Feast_of_Legends/images/FoLblock1.jpg?raw=true);
     background-repeat: no-repeat;
-    background-size: 322px 154px;
+    background-size: 375px 150px;
     grid-area: name;
     display: grid;
-    padding: 32px 0 0 20px;
+    padding: 10px 0 0 20px;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
   }
   
   div.sheet-name div.sheet-section-small{
-    margin: 5px;
-    
+    flex-direction: column;
+    align-items:center;
+    text-align: center !important;
+    margin: 5px;    
   }
   
   div.sheet-name label{
-    display: block;
-    position: relative;
-    top: 0.5em;
+    width: 70px;
+    margin-left: auto;
   }
   
   div.sheet-name input{
-    display: block; 
-    position: relative; 
-    top: -3em;
     width: 70px;
   }
   
@@ -305,7 +329,7 @@ span.sheet-bold{
   div.sheet-bio{
     grid-area: bio;
     background-image: url(https://github.com/Roll20/roll20-character-sheets/blob/master/Feast_of_Legends/images/FoLblock3.jpg?raw=true);
-    background-size: 290px 210px;
+    background-size: 325px 210px;
     background-repeat: no-repeat; 
     padding-right: 25px;
   }

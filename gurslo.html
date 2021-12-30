@@ -12,44 +12,35 @@
 
   <div class="sheet-name name section">
     <div class="sheet-section-small flex-center">
-      <label>NOME: </label>
       <input name="attr_nome_personagem" type="text">
+      <label>NOME</label>
     </div>
     <div class="sheet-section-small flex-center">
-      <label>CLASSE: </label>
       <input name="attr_classe" type="text">
+      <label>CLASSE</label>
     </div>   
     <div class="sheet-section-small flex-center">
-      <label>RAÇA: </label>
       <input name="attr_raca" type="text">
+      <label>RAÇA</label>
     </div>   
 
     <div class="sheet-section-small flex-center">
-      <label>NÍVEL</label>
       <input name="attr_nivel"       type="number" value="1">
+      <label>NÍVEL</label>
     </div>
   
     <div class="sheet-section-small flex-center">
-      <label>EXP</label>
       <input name="attr_xp"       type="number" value="0">
+      <label>EXP</label>
     </div>
   </div>
 
 <!-- MAIN STAT SECTION -->
 
   <div class="sheet-stats section">
-
-    <div>
-      <button name="roll_init" type="roll" value="&{template:default} {{name=Iniciativa}} {{Resultado=[[@{rolldestreza}]]}} &{tracker}"><span>Iniciativa</span></button>
-    </div>
-    <div>
-        <button name="roll_defesa" type="roll" value="&{template:default} {{name=Defesa}} {{Resultado=[[@{rollesquiva} + @{tenacidade} + @{rollarmadura}]]}}"><span>Defesa</span></button>
-    </div>
-    
-
     <div class="sheet-stat-block flex-center">
       <label>FORÇA</label>
-      <input name="attr_forca" type="number" value="">
+      <input name="attr_forca" type="number" value="1">
       <span name="attr_forca_bonus"></span>
       <button type="roll" value="&{template:default} {{name=Teste de Força}} {{Teste=[[@{rollforca}]]}}" name="roll_forca"></button>
       <input type="hidden" name="attr_rollforca" value="1d4">
@@ -57,7 +48,7 @@
 
     <div class="sheet-stat-block flex-center">
       <label>DESTREZA</label>
-      <input name="attr_destreza" type="number" value="">
+      <input name="attr_destreza" type="number" value="1">
       <span name="attr_destreza_bonus"></span>
       <button type="roll" value="&{template:default} {{name=Teste de Destreza}} {{Teste=[[@{rolldestreza}]]}}" name="roll_destreza"></button>
       <input type="hidden" name="attr_rolldestreza" value="1d4">
@@ -65,7 +56,7 @@
 
     <div class="sheet-stat-block flex-center">
         <label>INTELIGÊNCIA</label>
-        <input name="attr_inteligencia" type="number" value="">
+        <input name="attr_inteligencia" type="number" value="1">
         <span name="attr_inteligencia_bonus"></span>
         <button type="roll" value="&{template:default} {{name=Teste de Inteligência}} {{Teste=[[@{rollinteligencia}]]}}" name="roll_inteligencia"></button>
       <input type="hidden" name="attr_rollinteligencia" value="1d4">
@@ -73,7 +64,7 @@
 
     <div class="sheet-stat-block flex-center">
       <label>CONSTITUIÇÃO</label>
-      <input name="attr_constituicao" type="number" value="">
+      <input name="attr_constituicao" type="number" value="1">
       <span name="attr_constituicao_bonus"></span>
       <button type="roll" value="&{template:default} {{name=Teste de Constituição}} {{Teste=[[@{rollconstituicao}]]}}" name="roll_constituicao"></button>
       <input type="hidden" name="attr_rollconstituicao" value="1d4">
@@ -81,13 +72,17 @@
 
     <div class="sheet-stat-block flex-center">
       <label>CARISMA</label>
-      <input name="attr_carisma" type="number" value="">
+      <input name="attr_carisma" type="number" value="1">
       <span name="attr_carisma_bonus"></span>
       <button type="roll" value="&{template:default} {{name=Teste de Carisma}} {{Teste=[[@{rollcarisma}]]}}" name="roll_carisma"></button>
       <input type="hidden" name="attr_rollcarisma" value="1d4">
     </div>
 
-    
+    <!-- BIO SECTION -->
+  <div class="sheet-bio section flex-center flex-middle flex-down">
+    <label>Bio</label>
+    <textarea name="attr_bio" placeholder="Bio"></textarea>
+  </div>
 
 
   </div>
@@ -95,46 +90,65 @@
 <!-- ATTR SECTION -->
 <div class="sheet-attr section">
   <div class="sheet-attr-block flex-center">
-    <input name="attr_vida"       type="number" value="">
-    <span name="attr_vida_max" type="number" value=""></span>
+    <div>
+      <input name="attr_vida"       type="number" value="0">/
+      <input name="attr_vida_max" type="number" value="0">
+    </div>
     <label>VIDA</label>
   </div>
 
   <div class="sheet-attr-block flex-center">
-    <input name="attr_mana"     type="number" value="">
-    <span name="attr_mana_max" type="number" value=""></span>
+    <div>
+      <input name="attr_mana"     type="number" value="0">/
+      <input name="attr_mana_max" type="number" value="0">
+    </div>
     <label>MANA</label>
   </div>
 
   <div class="sheet-attr-block flex-center">
-    <input name="attr_vigor"     type="number" value="">
-    <span name="attr_vigor_max" type="number" value=""></span>
+    <div>
+      <input name="attr_vigor"     type="number" value="0">/
+      <input name="attr_vigor_max" type="number" value="0">
+    </div>
     <label>VIGOR</label>
     </div>
 
   <div class="sheet-attr-block flex-center">
-    <span name="attr_esquiva"     type="number" value=""></span>
-    <input type="hidden" name="attr_rollesquiva" value="1d4">
+    <div>
+      <input name="attr_armadura" type="number" value="0">
+      <input type="hidden" name="attr_rollarmadura" value="0">
+    </div>
+    <label>ARM</label>
+  </div>
+
+  <div class="sheet-attr-block flex-center">
+    <div>
+      <input name="attr_esquiva"     type="number" value="0">
+      <input type="hidden" name="attr_rollesquiva" value="1d4">
+    </div>
     <label>ESQ</label>
     </div>
 
   <div class="sheet-attr-block flex-center">
-    <span name="attr_tenacidade"     type="number" value=""></span>
+    <div>
+      <input name="attr_tenacidade" type="number" value="0">
+    </div>
     <label>TEN</label>
-    </div>
-
-    <div class="sheet-attr-block flex-center">
-      <input name="attr_armadura" type="number" value="">
-      <input type="hidden" name="attr_rollarmadura" value="0">
-      <label>ARM</label>
-    </div>
+  </div>  
 </div>
 
-<!-- BIO SECTION -->
-  <div class="sheet-bio section flex-center flex-middle flex-down">
-    <label>Bio</label>
-    <textarea name="attr_bio" placeholder="Bio"></textarea>
+<!-- Iniciativa/Defesa -->
+
+<div class="sheet-init">
+  <div>
+    <button name="roll_init" type="roll" value="&{template:default} {{name=Iniciativa}} {{Resultado=[[@{rolldestreza}]]}} &{tracker}"><span>Iniciativa</span></button>
   </div>
+  <div>
+      <button name="roll_defesa" type="roll" value="&{template:default} {{name=Defesa}} {{Resultado=[[@{rollesquiva} + @{tenacidade} + @{rollarmadura}]]}}"><span>Defesa</span></button>
+  </div>
+</div>
+
+
 
 <!-- GOLD SECTION-->
   <div class="sheet-gold section flex-center">
