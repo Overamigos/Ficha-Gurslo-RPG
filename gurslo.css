@@ -12,7 +12,7 @@ span.sheet-bold{
   
   label {
     margin: 5px 0px 5px 0px;
-    font-size: 1.1em;
+    font-size: 1.0em;
   }
   
   
@@ -110,10 +110,11 @@ span.sheet-bold{
    while also providing a human-readable overview. */
   div.sheet-main {
     display: grid;
+    padding: 25px;
     grid-template-columns: 3.5fr 3.5fr;
     grid-template-rows: 2fr 0.6fr 2.3fr 0.7fr 3fr 0.7fr 1fr 2fr;
-    grid-template-areas:"logo       name"
-                        "logo       bio"
+    grid-template-areas:"logo       name"              
+                        "stats      attr"
                         "stats      bio"
                         "stats      gold"
                         "stats      load"
@@ -121,10 +122,10 @@ span.sheet-bold{
                         "resistance order-skills"
                         "resistance order-skills";
     grid-gap: 6px;
-    width:    650px; /* Defines the width and height of the sheet */
+    width:    650px; 
     height:   900px;
     background-image: url(https://github.com/Roll20/roll20-character-sheets/blob/master/Feast_of_Legends/images/FoLborder.jpg?raw=true);
-    background-size: 650px 900px; /* Sets the sheet border image to same size as sheet */
+    background-size: 700px 900px;
     background-repeat: no-repeat;
   }
   
@@ -136,22 +137,44 @@ span.sheet-bold{
   div.sheet-logo{
     grid-area: logo;
     background-image: url(https://i.imgur.com/ODQk1ey.jpg);
-    background-size: 295px 180px;
+    background-size: 100px 100px;
+    background-position-y: center;
     background-repeat: no-repeat;
-    margin-left: 20px;
-    margin-top: 15px;
     display: flex;
-    justify-content:flex-end;
-    align-items:flex-end;
+    justify-content: center;
+    align-items: flex-end;
     flex-flow: column;
   }
   
   div.sheet-logo span{
-    font-size: 15px;
-    background-color: white;
-    border: 2px solid black; 
+    font-size: 25px;
+    margin-right: 35px;
   }
   
+  /* ATTR SECTION */
+  
+  div.sheet-attr{
+    background-image: url(https://github.com/Roll20/roll20-character-sheets/blob/master/Feast_of_Legends/images/FoLblock1.jpg?raw=true);
+    background-repeat: no-repeat;
+    background-size: 50px 50px;
+    grid-area: attr;
+    margin-left: 15px;
+    display: flex;
+  }
+
+  div.sheet-attr div.sheet-attr-block{
+    padding: 5px;
+    height: 40px;
+    width: 40px;
+    border: solid black 1px;
+  }
+  div.sheet-attr div.sheet-attr-block input{    
+    width: 20px;
+  }
+  div.sheet-attr div.sheet-attr-block label{    
+    font-size: 12px;
+  }
+
   /* STATS SECTION */
   
   div.sheet-stats{
@@ -247,25 +270,32 @@ span.sheet-bold{
   /* NAME SECTION */
   
   div.sheet-name{
+    background-image: url(https://github.com/Roll20/roll20-character-sheets/blob/master/Feast_of_Legends/images/FoLblock1.jpg?raw=true);
+    background-repeat: no-repeat;
+    background-size: 322px 154px;
     grid-area: name;
-    padding-top: 35px;
+    display: grid;
+    padding: 32px 0 0 20px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
   }
   
   div.sheet-name div.sheet-section-small{
-    background-image: url(https://github.com/Roll20/roll20-character-sheets/blob/master/Feast_of_Legends/images/FoLblock1.jpg?raw=true);
-    background-size: contain;
-    background-repeat: no-repeat;
-    height: 50px;
-    width: 290px;
+    margin: 5px;
+    
   }
   
   div.sheet-name label{
-    width: 50px;
-    padding-left: 15px;
+    display: block;
+    position: relative;
+    top: 0.5em;
   }
   
   div.sheet-name input{
-    width: 180px;
+    display: block; 
+    position: relative; 
+    top: -3em;
+    width: 70px;
   }
   
   

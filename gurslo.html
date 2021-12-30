@@ -1,24 +1,43 @@
-
-<div class="main">
+<head>
+  <link rel="stylesheet" href="gurslo.css">
+</head>
+<div class="main sheet-main">
 
 <!-- LOGO SECTION -->
-  <div class="logo section"> <span> Sheet Version:1.1 </span> </div>
+  <div class="sheet-logo logo section"> 
+    <span> Logo Gurslo RPG</span> 
+  </div>
 
 <!-- NAME SECTION -->
-  <div class="name section">
-    <div class="section-small flex-center">
+
+  <div class="sheet-name name section">
+    <div class="sheet-section-small flex-center">
       <label>NOME: </label>
       <input name="attr_nome_personagem" type="text">
     </div>
-    <div class="section-small flex-center">
+    <div class="sheet-section-small flex-center">
       <label>CLASSE: </label>
       <input name="attr_classe" type="text">
+    </div>   
+    <div class="sheet-section-small flex-center">
+      <label>RAÇA: </label>
+      <input name="attr_raca" type="text">
+    </div>   
+
+    <div class="sheet-section-small flex-center">
+      <label>NÍVEL</label>
+      <input name="attr_nivel"       type="number" value="1">
+    </div>
+  
+    <div class="sheet-section-small flex-center">
+      <label>EXP</label>
+      <input name="attr_xp"       type="number" value="0">
     </div>
   </div>
 
 <!-- MAIN STAT SECTION -->
 
-  <div class="stats section">
+  <div class="sheet-stats section">
 
     <div>
       <button name="roll_init" type="roll" value="&{template:default} {{name=Iniciativa}} {{Resultado=[[@{rolldestreza}]]}} &{tracker}"><span>Iniciativa</span></button>
@@ -28,17 +47,7 @@
     </div>
     
 
-    <div class="stat-block flex-center">
-        <label>NÍVEL</label>
-        <input name="attr_nivel"       type="number" value="1">
-      </div>
-    
-      <div class="stat-block flex-center">
-        <label>EXPERIÊNCIA</label>
-        <input name="attr_xp"       type="number" value="0">
-      </div>
-
-    <div class="stat-block flex-center">
+    <div class="sheet-stat-block flex-center">
       <label>FORÇA</label>
       <input name="attr_forca" type="number" value="">
       <span name="attr_forca_bonus"></span>
@@ -46,7 +55,7 @@
       <input type="hidden" name="attr_rollforca" value="1d4">
     </div>   
 
-    <div class="stat-block flex-center">
+    <div class="sheet-stat-block flex-center">
       <label>DESTREZA</label>
       <input name="attr_destreza" type="number" value="">
       <span name="attr_destreza_bonus"></span>
@@ -54,7 +63,7 @@
       <input type="hidden" name="attr_rolldestreza" value="1d4">
     </div>
 
-    <div class="stat-block flex-center">
+    <div class="sheet-stat-block flex-center">
         <label>INTELIGÊNCIA</label>
         <input name="attr_inteligencia" type="number" value="">
         <span name="attr_inteligencia_bonus"></span>
@@ -62,7 +71,7 @@
       <input type="hidden" name="attr_rollinteligencia" value="1d4">
       </div>
 
-    <div class="stat-block flex-center">
+    <div class="sheet-stat-block flex-center">
       <label>CONSTITUIÇÃO</label>
       <input name="attr_constituicao" type="number" value="">
       <span name="attr_constituicao_bonus"></span>
@@ -70,7 +79,7 @@
       <input type="hidden" name="attr_rollconstituicao" value="1d4">
     </div>
 
-    <div class="stat-block flex-center">
+    <div class="sheet-stat-block flex-center">
       <label>CARISMA</label>
       <input name="attr_carisma" type="number" value="">
       <span name="attr_carisma_bonus"></span>
@@ -78,58 +87,63 @@
       <input type="hidden" name="attr_rollcarisma" value="1d4">
     </div>
 
-    <div class="stat-block flex-center">
-      <label>VIDA</label>
-      <input name="attr_vida"       type="number" value="">
-      <span name="attr_vida_max" type="number" value=""></span>
-    </div>
-
-    <div class="stat-block flex-center">
-      <label>MANA</label>
-      <input name="attr_mana"     type="number" value="">
-      <span name="attr_mana_max" type="number" value=""></span>
-    </div>
-
-    <div class="stat-block flex-center">
-        <label>VIGOR</label>
-        <input name="attr_vigor"     type="number" value="">
-        <span name="attr_vigor_max" type="number" value=""></span>
-      </div>
-
-    <div class="stat-block flex-center">
-        <label>ESQUIVA</label>
-        <span name="attr_esquiva"     type="number" value=""></span>
-        <input type="hidden" name="attr_rollesquiva" value="1d4">
-      </div>
-
-    <div class="stat-block flex-center">
-        <label>TENACIDADE</label>
-        <span name="attr_tenacidade"     type="number" value=""></span>
-      </div>
-
-      <div class="stat-block flex-center">
-        <label>ARMADURA</label>
-        <input name="attr_armadura" type="number" value="">
-        <input type="hidden" name="attr_rollarmadura" value="0">
-      </div>
+    
 
 
   </div>
 
+<!-- ATTR SECTION -->
+<div class="sheet-attr section">
+  <div class="sheet-attr-block flex-center">
+    <input name="attr_vida"       type="number" value="">
+    <span name="attr_vida_max" type="number" value=""></span>
+    <label>VIDA</label>
+  </div>
+
+  <div class="sheet-attr-block flex-center">
+    <input name="attr_mana"     type="number" value="">
+    <span name="attr_mana_max" type="number" value=""></span>
+    <label>MANA</label>
+  </div>
+
+  <div class="sheet-attr-block flex-center">
+    <input name="attr_vigor"     type="number" value="">
+    <span name="attr_vigor_max" type="number" value=""></span>
+    <label>VIGOR</label>
+    </div>
+
+  <div class="sheet-attr-block flex-center">
+    <span name="attr_esquiva"     type="number" value=""></span>
+    <input type="hidden" name="attr_rollesquiva" value="1d4">
+    <label>ESQ</label>
+    </div>
+
+  <div class="sheet-attr-block flex-center">
+    <span name="attr_tenacidade"     type="number" value=""></span>
+    <label>TEN</label>
+    </div>
+
+    <div class="sheet-attr-block flex-center">
+      <input name="attr_armadura" type="number" value="">
+      <input type="hidden" name="attr_rollarmadura" value="0">
+      <label>ARM</label>
+    </div>
+</div>
+
 <!-- BIO SECTION -->
-  <div class="bio section flex-center flex-middle flex-down">
+  <div class="sheet-bio section flex-center flex-middle flex-down">
     <label>Bio</label>
     <textarea name="attr_bio" placeholder="Bio"></textarea>
   </div>
 
 <!-- GOLD SECTION-->
-  <div class="gold section flex-center">
+  <div class="sheet-gold section flex-center">
     <label>Ouro:</label>
     <input name="attr_ouro" type="number" value="0">
   </div>
 
 <!-- LOAD SECTION -->
-  <div class="load section flex-center flex-middle flex-down">
+  <div class="sheet-load section flex-center flex-middle flex-down">
     <label>Equipamentos</label>
     <span>
       <input name="attr_arma1_nome" type="text" placeholder="Nome Arma"> 
@@ -162,7 +176,7 @@
 
 
 <!-- SKILL SECTION -->
-  <div class="order-skills section flex-center flex-down">
+  <div class="sheet-order-skills section flex-center flex-down">
     <label>Habilidades</label>
     <span>
       <input name="attr_hab1_nome" type="text" placeholder="Nome H1"> 
