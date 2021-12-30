@@ -1,0 +1,310 @@
+
+<div class="main">
+
+<!-- LOGO SECTION -->
+  <div class="logo section"> <span> Sheet Version:1.1 </span> </div>
+
+<!-- NAME SECTION -->
+  <div class="name section">
+    <div class="section-small flex-center">
+      <label>NOME: </label>
+      <input name="attr_nome_personagem" type="text">
+    </div>
+    <div class="section-small flex-center">
+      <label>CLASSE: </label>
+      <input name="attr_classe" type="text">
+    </div>
+  </div>
+
+<!-- MAIN STAT SECTION -->
+
+  <div class="stats section">
+
+    <div>
+      <button name="roll_init" type="roll" value="&{template:default} {{name=Iniciativa}} {{Resultado=[[@{rolldestreza}]]}} &{tracker}"><span>Iniciativa</span></button>
+    </div>
+    <div>
+        <button name="roll_defesa" type="roll" value="&{template:default} {{name=Defesa}} {{Resultado=[[@{rollesquiva} + @{tenacidade} + @{rollarmadura}]]}}"><span>Defesa</span></button>
+    </div>
+    
+
+    <div class="stat-block flex-center">
+        <label>NÍVEL</label>
+        <input name="attr_nivel"       type="number" value="1">
+      </div>
+    
+      <div class="stat-block flex-center">
+        <label>EXPERIÊNCIA</label>
+        <input name="attr_xp"       type="number" value="0">
+      </div>
+
+    <div class="stat-block flex-center">
+      <label>FORÇA</label>
+      <input name="attr_forca" type="number" value="">
+      <span name="attr_forca_bonus"></span>
+      <button type="roll" value="&{template:default} {{name=Teste de Força}} {{Teste=[[@{rollforca}]]}}" name="roll_forca"></button>
+      <input type="hidden" name="attr_rollforca" value="1d4">
+    </div>   
+
+    <div class="stat-block flex-center">
+      <label>DESTREZA</label>
+      <input name="attr_destreza" type="number" value="">
+      <span name="attr_destreza_bonus"></span>
+      <button type="roll" value="&{template:default} {{name=Teste de Destreza}} {{Teste=[[@{rolldestreza}]]}}" name="roll_destreza"></button>
+      <input type="hidden" name="attr_rolldestreza" value="1d4">
+    </div>
+
+    <div class="stat-block flex-center">
+        <label>INTELIGÊNCIA</label>
+        <input name="attr_inteligencia" type="number" value="">
+        <span name="attr_inteligencia_bonus"></span>
+        <button type="roll" value="&{template:default} {{name=Teste de Inteligência}} {{Teste=[[@{rollinteligencia}]]}}" name="roll_inteligencia"></button>
+      <input type="hidden" name="attr_rollinteligencia" value="1d4">
+      </div>
+
+    <div class="stat-block flex-center">
+      <label>CONSTITUIÇÃO</label>
+      <input name="attr_constituicao" type="number" value="">
+      <span name="attr_constituicao_bonus"></span>
+      <button type="roll" value="&{template:default} {{name=Teste de Constituição}} {{Teste=[[@{rollconstituicao}]]}}" name="roll_constituicao"></button>
+      <input type="hidden" name="attr_rollconstituicao" value="1d4">
+    </div>
+
+    <div class="stat-block flex-center">
+      <label>CARISMA</label>
+      <input name="attr_carisma" type="number" value="">
+      <span name="attr_carisma_bonus"></span>
+      <button type="roll" value="&{template:default} {{name=Teste de Carisma}} {{Teste=[[@{rollcarisma}]]}}" name="roll_carisma"></button>
+      <input type="hidden" name="attr_rollcarisma" value="1d4">
+    </div>
+
+    <div class="stat-block flex-center">
+      <label>VIDA</label>
+      <input name="attr_vida"       type="number" value="">
+      <span name="attr_vida_max" type="number" value=""></span>
+    </div>
+
+    <div class="stat-block flex-center">
+      <label>MANA</label>
+      <input name="attr_mana"     type="number" value="">
+      <span name="attr_mana_max" type="number" value=""></span>
+    </div>
+
+    <div class="stat-block flex-center">
+        <label>VIGOR</label>
+        <input name="attr_vigor"     type="number" value="">
+        <span name="attr_vigor_max" type="number" value=""></span>
+      </div>
+
+    <div class="stat-block flex-center">
+        <label>ESQUIVA</label>
+        <span name="attr_esquiva"     type="number" value=""></span>
+        <input type="hidden" name="attr_rollesquiva" value="1d4">
+      </div>
+
+    <div class="stat-block flex-center">
+        <label>TENACIDADE</label>
+        <span name="attr_tenacidade"     type="number" value=""></span>
+      </div>
+
+      <div class="stat-block flex-center">
+        <label>ARMADURA</label>
+        <input name="attr_armadura" type="number" value="">
+        <input type="hidden" name="attr_rollarmadura" value="0">
+      </div>
+
+
+  </div>
+
+<!-- BIO SECTION -->
+  <div class="bio section flex-center flex-middle flex-down">
+    <label>Bio</label>
+    <textarea name="attr_bio" placeholder="Bio"></textarea>
+  </div>
+
+<!-- GOLD SECTION-->
+  <div class="gold section flex-center">
+    <label>Ouro:</label>
+    <input name="attr_ouro" type="number" value="0">
+  </div>
+
+<!-- LOAD SECTION -->
+  <div class="load section flex-center flex-middle flex-down">
+    <label>Equipamentos</label>
+    <span>
+      <input name="attr_arma1_nome" type="text" placeholder="Nome Arma"> 
+      <input name="attr_arma1_bonus" type="number" value="0"> 
+      <input name="attr_arma1_dado" type="text" value="1d4" class="small">
+      <select name="attr_arma1_atrib">
+        <option value="0" selected="selected">Força</option>
+        <option value="1">Destreza</option>
+        <option value="2">Inteligência</option>
+      </select> 
+      <button name="roll_arma1" type="roll" value="&{template:default} {{name=@{arma1_nome}}} {{Dano Total=[[@{danototalarma1}]]}}" class ="small"></button>
+      <input type="hidden" name="attr_danototalarma1" value="@{rollarma1} + @{arma1_bonus} + @{arma1_dado}">
+      <input type="hidden" name="attr_rollarma1" value="0">
+    </span>
+    <span>
+      <input name="attr_arma2_nome" type="text" placeholder="Nome Arma"> 
+      <input name="attr_arma2_bonus" type="number" value="0"> 
+      <input name="attr_arma2_dado" type="text" value="1d4" class="small">
+      <select name="attr_arma2_atrib">
+        <option value="0" selected="selected">Força</option>
+        <option value="1">Destreza</option>
+        <option value="2">Inteligência</option>
+      </select> 
+      <button name="roll_arma2" type="roll" value="&{template:default} {{name=@{arma2_nome}}} {{Dano Total=[[@{danototalarma2}]]}}" class ="small"></button>
+      <input type="hidden" name="attr_danototalarma2" value="@{rollarma2} + @{arma2_bonus} + @{arma2_dado}">
+      <input type="hidden" name="attr_rollarma2" value="0">
+    </span>
+    <textarea name="attr_carga" placeholder="Carga"></textarea>
+  </div>
+
+
+<!-- SKILL SECTION -->
+  <div class="order-skills section flex-center flex-down">
+    <label>Habilidades</label>
+    <span>
+      <input name="attr_hab1_nome" type="text" placeholder="Nome H1"> 
+      <textarea name="attr_hab1_desc" placeholder="Descrição H1"></textarea>
+      <button name="roll_h1" type="roll" value="&{template:default} {{name=@{hab1_nome}}} @{hab1_dados}" class ="small"></button>
+      <textarea name="attr_hab1_dados" placeholder="Dados H1"></textarea>
+    </span>
+    <span>
+      <input name="attr_hab2_nome" type="text" placeholder="Nome H2"> 
+      <textarea name="attr_hab2_desc" placeholder="Descrição H2"></textarea>
+      <button name="roll_h2" type="roll" value="&{template:default} {{name=@{hab2_nome}}} @{hab2_dados}" class ="small"></button>
+      <textarea name="attr_hab2_dados" placeholder="Dados H2"></textarea>
+    </span>
+    <span>
+      <input name="attr_hab3_nome" type="text" placeholder="Nome H3"> 
+      <textarea name="attr_hab3_desc" placeholder="Descrição H3"></textarea>
+      <button name="roll_h3" type="roll" value="&{template:default} {{name=@{hab3_nome}}} @{hab3_dados}" class ="small"></button>
+      <textarea name="attr_hab3_dados" placeholder="Dados H3"></textarea>
+    </span>
+    <span>
+      <input name="attr_hab4_nome" type="text" placeholder="Nome H4"> 
+      <textarea name="attr_hab4_desc" placeholder="Descrição H4"></textarea>
+      <button name="roll_h4" type="roll" value="&{template:default} {{name=@{hab4_nome}}} @{hab4_dados}" class ="small"></button>
+      <textarea name="attr_hab4_dados" placeholder="Dados H4"></textarea>
+    </span>
+  </div>
+
+</div>
+
+<input name="attr_forca_bonus" type="hidden" value="0">
+<input name="attr_inteligencia_bonus" type="hidden" value="0">
+<input name="attr_destreza_bonus" type="hidden" value="0">
+<input name="attr_constituicao_bonus" type="hidden" value="0">
+<input name="attr_carisma_bonus" type="hidden" value="0">
+
+
+<!-- ---------------------------SHEET WORKERS----------------- -->
+
+<script type="text/worker">
+
+const int = score => parseInt(score, 10) || 0;
+
+function stat2dice(stat_base){
+    let dado1 = Math.floor(stat_base/5);
+    let dado2 = (stat_base % 5)*2 + 2;
+    let stat_bonus = "";
+    if (dado2 > 2) stat_bonus = "1d"+dado2.toString();
+    if (dado1 > 0) {
+        if (dado2 == 2) {
+        stat_bonus = dado1.toString() +"d12";
+        }
+        else {
+        stat_bonus = stat_bonus + " + " + dado1.toString() +"d12";
+        }
+    }
+    return stat_bonus;
+}
+
+// Calcula automaticamente o valor do dado associado ao atributo
+
+const stats = ["forca", "destreza", "inteligencia", "constituicao", "carisma"];
+stats.forEach(stat => {
+    on(`change:${stat}`, () => {
+        getAttrs([stat], values => {
+            const stat_base = int(values[stat]);
+            let stat_bonus = stat2dice(stat_base);
+   
+            setAttrs({
+                [`${stat}_bonus`]: stat_bonus,
+                [`roll${stat}`]: stat_bonus
+            });
+        });
+
+        getAttrs(["forca","destreza","inteligencia","constituicao","nivel","arma1_atrib","arma2_atrib"], function(values) {
+            let forc = parseInt(values.forca, 10);
+            let des = parseInt(values.destreza, 10);
+            let inte = parseInt(values.inteligencia, 10);
+            let con = parseInt(values.constituicao, 10);
+            let lvl = parseInt(values.nivel, 10);
+            let atrib1 = parseInt(values.arma1_atrib, 10);
+            let atrib2 = parseInt(values.arma2_atrib, 10);
+
+            let esquiva = Math.ceil(des/2);
+            let vida_max = con*2 + 2;
+            let mana_max = con+inte;
+            let vigor_max = con+forc;
+            let tenacidade = Math.ceil(lvl/2);
+
+            let esquivaRoll = stat2dice(esquiva);
+            let rollarma1 = "";
+            let rollarma2 = "";
+
+            console.log()
+
+            switch(atrib1) {
+              case 0:
+                rollarma1 = stat2dice(forc);
+                break;
+
+              case 1:
+                rollarma1 = stat2dice(des);
+                break;
+
+              case 2:
+                rollarma1 = stat2dice(inte);
+                break;
+            }
+            switch(atrib2) {
+              case 0:
+                rollarma2 = stat2dice(forc);
+                break;
+
+              case 1:
+                rollarma2 = stat2dice(des);
+                break;
+
+              case 2:
+                rollarma2 = stat2dice(inte);
+                break;
+            }  
+
+            setAttrs({
+                esquiva: esquiva,
+                vida_max: vida_max,
+                vigor_max: vigor_max,
+                mana_max: mana_max,
+                tenacidade: tenacidade,
+                rollesquiva: esquivaRoll,
+                rollarma1: rollarma1,
+                rollarma2: rollarma2
+            });
+        });
+    });
+});
+
+on("change:armadura", function() {  
+  getAttrs(["armadura"], function(values) {
+      let armadura = parseInt(values.armadura, 10);
+      setAttrs({
+        rollarmadura: stat2dice(armadura)
+      });
+  });
+
+});
+</script>
